@@ -1,0 +1,472 @@
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer CV Builder | Gradient Templates</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- HTML2PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="resume.css">
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <!-- PDF Loading Overlay -->
+    <div id="pdfLoading" class="pdf-loading">
+        <div class="loader"></div>
+        <h2 class="loading-title">Creating Your Professional CV</h2>
+        <p class="loading-text">Generating high-quality PDF with gradient design...</p>
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-gradient">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <div class="logo-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <h1 class="site-title">Kashaf's CV Builder</h1>
+                        <p class="site-subtitle">Create stunning resumes with gradient designs</p>
+                    </div>
+                </div>
+                <div class="cv-strength-card">
+                    <div class="flex items-center">
+                        <i class="fas fa-chart-line strength-icon"></i>
+                        <div>
+                            <p class="strength-label">CV Strength</p>
+                            <div class="flex items-center">
+                                <span class="strength-score" id="resumeScore">85%</span>
+                                <div class="strength-bar-container">
+                                    <div class="strength-bar" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Template Selection -->
+        <div class="mb-12">
+            <div class="section-header">
+                <h2>Choose Your Gradient Design</h2>
+                <p>Select from our collection of gradient-based CV templates</p>
+            </div>
+            
+            <div class="template-grid">
+                <!-- Ocean Blue Template -->
+                <div class="template-card selected" data-template="ocean-blue">
+                    <div class="template-preview ocean-gradient">
+                        <div class="template-elements">
+                            <div class="element-line"></div>
+                            <div class="element-circle"></div>
+                            <div class="element-dot"></div>
+                        </div>
+                        <div class="template-label">
+                            <div class="template-name">OCEAN</div>
+                            <div class="template-type">Blue Gradient</div>
+                        </div>
+                    </div>
+                    <h3 class="template-title">Ocean Blue</h3>
+                    <p class="template-description">Professional & Modern</p>
+                    <div class="template-badge popular">Most Popular</div>
+                </div>
+                
+                <!-- Sunset Orange Template -->
+                <div class="template-card" data-template="sunset-orange">
+                    <div class="template-preview sunset-gradient">
+                        <div class="template-elements">
+                            <div class="element-triangle"></div>
+                            <div class="element-dot"></div>
+                        </div>
+                        <div class="template-label">
+                            <div class="template-name">SUNSET</div>
+                            <div class="template-type">Orange Gradient</div>
+                        </div>
+                    </div>
+                    <h3 class="template-title">Sunset Orange</h3>
+                    <p class="template-description">Warm & Creative</p>
+                </div>
+                
+                <!-- Forest Green Template -->
+                <div class="template-card" data-template="forest-green">
+                    <div class="template-preview forest-gradient">
+                        <div class="template-elements">
+                            <div class="element-square"></div>
+                            <div class="element-line"></div>
+                        </div>
+                        <div class="template-label">
+                            <div class="template-name">FOREST</div>
+                            <div class="template-type">Green Gradient</div>
+                        </div>
+                    </div>
+                    <h3 class="template-title">Forest Green</h3>
+                    <p class="template-description">Natural & Fresh</p>
+                </div>
+                
+                <!-- Royal Purple Template -->
+                <div class="template-card" data-template="royal-purple">
+                    <div class="template-preview royal-gradient">
+                        <div class="template-elements">
+                            <div class="element-circle"></div>
+                            <div class="element-line-vertical"></div>
+                        </div>
+                        <div class="template-label">
+                            <div class="template-name">ROYAL</div>
+                            <div class="template-type">Purple Gradient</div>
+                        </div>
+                    </div>
+                    <h3 class="template-title">Royal Purple</h3>
+                    <p class="template-description">Elegant & Bold</p>
+                </div>
+                
+                <!-- Steel Gray Template -->
+                <div class="template-card" data-template="steel-gray">
+                    <div class="template-preview steel-gradient">
+                        <div class="template-elements">
+                            <div class="element-line-horizontal"></div>
+                            <div class="element-square-small"></div>
+                        </div>
+                        <div class="template-label">
+                            <div class="template-name">STEEL</div>
+                            <div class="template-type">Gray Gradient</div>
+                        </div>
+                    </div>
+                    <h3 class="template-title">Steel Gray</h3>
+                    <p class="template-description">Minimal & Clean</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left Column: Input Form -->
+            <div class="lg:w-2/5">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <div class="section-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2 class="section-title">Personal Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" placeholder="Johnathan Smith" value="Johnathan Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title *</label>
+                            <input type="text" id="jobTitle" placeholder="Senior Software Developer" value="Senior Software Developer">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" placeholder="john.smith@example.com" value="john.smith@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="text" id="phone" placeholder="+1 (123) 456-7890" value="+1 (123) 456-7890">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="San Francisco, CA" value="San Francisco, CA">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="text" id="linkedin" placeholder="linkedin.com/in/username" value="linkedin.com/in/johnathansmith">
+                        </div>
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio</label>
+                            <input type="text" id="portfolio" placeholder="yourwebsite.com" value="johnsmith.dev">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Summary -->
+                <div class="form-section">
+                    <div class="section-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="form-group">
+                        <label for="summary">Write a compelling summary *</label>
+                        <textarea id="summary" rows="5">Results-driven Senior Software Developer with 5+ years of experience in full-stack web development. Expertise in JavaScript, React, Node.js, and cloud technologies with a proven track record of delivering scalable solutions that improve performance by 40%. Strong leadership skills with experience mentoring junior developers and leading agile teams to successful project completion.</textarea>
+                    </div>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="form-section">
+                    <div class="section-header-inline">
+                        <div class="section-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h2 class="section-title">Work Experience</h2>
+                        <button id="addExperience" class="add-button">
+                            <i class="fas fa-plus"></i> Add Experience
+                        </button>
+                    </div>
+                    <div id="experienceContainer" class="experience-container">
+                        <div class="experience-item">
+                            <div class="experience-grid">
+                                <div class="form-group">
+                                    <label>Job Title *</label>
+                                    <input type="text" class="experience-job-title" placeholder="Senior Software Developer" value="Senior Software Developer">
+                                </div>
+                                <div class="form-group">
+                                    <label>Company *</label>
+                                    <input type="text" class="experience-company" placeholder="Tech Innovations Inc." value="Tech Innovations Inc.">
+                                </div>
+                                <div class="form-group">
+                                    <label>Start Date *</label>
+                                    <input type="text" class="experience-start" placeholder="March 2020" value="March 2020">
+                                </div>
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    <input type="text" class="experience-end" placeholder="Present" value="Present">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" class="experience-location" placeholder="San Francisco, CA" value="San Francisco, CA">
+                            </div>
+                            <div class="form-group">
+                                <label>Responsibilities & Achievements *</label>
+                                <textarea class="experience-description" rows="3">• Led a team of 5 developers in building a scalable SaaS platform
+• Improved application performance by 40% through optimization
+• Mentored 3 junior developers, improving team productivity by 25%
+• Implemented CI/CD pipeline reducing deployment time by 75%</textarea>
+                            </div>
+                            <div class="experience-actions">
+                                <button class="remove-experience">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="form-section">
+                    <div class="section-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2 class="section-title">Skills & Technologies</h2>
+                    <div class="form-group">
+                        <label for="skillsInput">Add Skills (press Enter after each skill)</label>
+                        <input type="text" id="skillsInput" placeholder="Type a skill and press Enter">
+                    </div>
+                    <div id="skillsContainer" class="skills-container">
+                        <span class="skill-tag blue">JavaScript</span>
+                        <span class="skill-tag green">React</span>
+                        <span class="skill-tag purple">Node.js</span>
+                        <span class="skill-tag orange">Team Leadership</span>
+                        <span class="skill-tag teal">Git</span>
+                    </div>
+                </div>
+
+                <!-- Download Options -->
+                <div class="download-section">
+                    <div class="section-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h2 class="section-title">Download Your CV</h2>
+                    <p class="download-description">Download your professional CV in PDF format with gradient design.</p>
+                    <div class="download-buttons">
+                        <button id="downloadCurrentTemplate" class="download-btn primary">
+                            <i class="fas fa-file-pdf"></i> Download Current Template
+                        </button>
+                        <button id="downloadAllTemplates" class="download-btn secondary">
+                            <i class="fas fa-layer-group"></i> Download All Templates
+                        </button>
+                        <button id="printResume" class="download-btn tertiary">
+                            <i class="fas fa-print"></i> Print CV
+                        </button>
+                        <button id="cancelResume" class="download-btn danger">
+                            <i class="fas fa-times"></i> Cancel/Reset CV
+                        </button>
+                    </div>
+                    <div class="download-tip">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Download all templates to have multiple versions for different job applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: CV Preview -->
+            <div class="lg:w-3/5">
+                <div class="sticky top-8">
+                    <!-- Preview Header -->
+                    <div class="preview-header">
+                        <div>
+                            <h2>CV Preview</h2>
+                            <p>Real-time preview of your selected gradient template</p>
+                        </div>
+                        <div class="preview-controls">
+                            <div class="template-info">
+                                <span>Template:</span>
+                                <span id="currentTemplateName" class="template-name-active">Ocean Blue</span>
+                            </div>
+                            <div class="zoom-controls">
+                                <button id="zoomIn" class="zoom-btn">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button id="zoomOut" class="zoom-btn">
+                                    <i class="fas fa-search-minus"></i>
+                                </button>
+                                <button id="zoomReset" class="zoom-btn">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CV Preview Container -->
+                    <div class="cv-preview-container">
+                        <div id="resumePreview" class="cv-preview">
+                            <!-- Single CV Template - Will update gradient dynamically -->
+                            <div class="cv-template">
+                                <div class="cv-header ocean-gradient">
+                                    <div class="header-content">
+                                        <h1 id="previewName" class="cv-name">Johnathan Smith</h1>
+                                        <h2 id="previewTitle" class="cv-title">Senior Software Developer</h2>
+                                        <div class="contact-info">
+                                            <div class="contact-item">
+                                                <i class="fas fa-envelope"></i>
+                                                <span id="previewEmail">john.smith@example.com</span>
+                                            </div>
+                                            <div class="contact-item">
+                                                <i class="fas fa-phone"></i>
+                                                <span id="previewPhone">+1 (123) 456-7890</span>
+                                            </div>
+                                            <div class="contact-item">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span id="previewLocation">San Francisco, CA</span>
+                                            </div>
+                                            <div class="contact-item">
+                                                <i class="fab fa-linkedin"></i>
+                                                <span id="previewLinkedin">linkedin.com/in/johnathansmith</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="cv-body">
+                                    <!-- Professional Summary -->
+                                    <div class="cv-section">
+                                        <div class="section-header-cv">
+                                            <div class="section-icon-cv">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <h3 class="section-title-cv">PROFESSIONAL SUMMARY</h3>
+                                        </div>
+                                        <p id="previewSummary" class="cv-text">Results-driven Senior Software Developer with 5+ years of experience in full-stack web development. Expertise in JavaScript, React, Node.js, and cloud technologies with a proven track record of delivering scalable solutions.</p>
+                                    </div>
+                                    
+                                    <!-- Work Experience -->
+                                    <div class="cv-section">
+                                        <div class="section-header-cv">
+                                            <div class="section-icon-cv">
+                                                <i class="fas fa-briefcase"></i>
+                                            </div>
+                                            <h3 class="section-title-cv">WORK EXPERIENCE</h3>
+                                        </div>
+                                        <div id="previewExperience" class="experience-list">
+                                            <div class="experience-item-cv">
+                                                <div class="experience-header">
+                                                    <h4 class="experience-title">Senior Software Developer</h4>
+                                                    <span class="experience-date">March 2020 - Present</span>
+                                                </div>
+                                                <div class="experience-subheader">
+                                                    <span class="experience-company">Tech Innovations Inc.</span>
+                                                    <span class="experience-location">San Francisco, CA</span>
+                                                </div>
+                                                <ul class="experience-description-cv">
+                                                    <li>Led a team of 5 developers in building scalable SaaS platform</li>
+                                                    <li>Improved application performance by 40% through optimization</li>
+                                                    <li>Mentored 3 junior developers, improving team productivity</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Skills -->
+                                    <div class="cv-section">
+                                        <div class="section-header-cv">
+                                            <div class="section-icon-cv">
+                                                <i class="fas fa-tools"></i>
+                                            </div>
+                                            <h3 class="section-title-cv">SKILLS & TECHNOLOGIES</h3>
+                                        </div>
+                                        <div id="previewSkills" class="skills-list">
+                                            <span class="skill-cv blue">JavaScript</span>
+                                            <span class="skill-cv green">React</span>
+                                            <span class="skill-cv purple">Node.js</span>
+                                            <span class="skill-cv orange">Team Leadership</span>
+                                            <span class="skill-cv teal">Git</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview Info -->
+                    <div class="preview-info">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <h4>Download Tips</h4>
+                            <ul>
+                                <li>• Each template downloads as a separate PDF file</li>
+                                <li>• Use "Download All" to get all 5 gradient designs</li>
+                                <li>• PDFs are optimized for printing and ATS systems</li>
+                                <li>• Use "Cancel/Reset" to clear all data and start fresh</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Download Button -->
+    <button id="floatingDownloadBtn" class="floating-download-btn">
+        <i class="fas fa-download"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Gradient CV Builder</h3>
+                        <p>Create professional, gradient-based resumes</p>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; <span id="currentYear"></span> Gradient CV Builder</p>
+                    <p>Crafted with <i class="fas fa-heart"></i> for job seekers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="resume.js"></script>
+</body>
+</html>
